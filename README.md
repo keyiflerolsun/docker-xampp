@@ -1,3 +1,19 @@
+# keyiflerolsun
+
+```bash
+docker run --name myXampp -p 41061:22 -p 41062:80 -p 41063:3306 -d -v ~/my_web_pages:/www tomsik68/xampp
+docker exec -it myXampp bash
+export PATH=/opt/lampp/bin:$PATH
+
+
+mysql mysql
+GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'root';
+FLUSH PRIVILEGES;
+
+
+scp -P 41061 -r * root@localhost:/opt/lampp/var/mysql/keyif/.
+```
+
 [![DockerHub:latest](https://github.com/tomsik68/docker-xampp/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/tomsik68/docker-xampp/actions/workflows/docker-image.yml) 
 [![Docker Hub](https://img.shields.io/docker/pulls/tomsik68/xampp)](https://hub.docker.com/r/tomsik68/xampp)
 [![XAMPP version](https://img.shields.io/badge/XAMPP-8.1.6-1abc9c.svg)](https://www.apachefriends.org/)  [![Gitter](https://badges.gitter.im/docker-xampp/community.svg)](https://gitter.im/docker-xampp/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
@@ -65,7 +81,7 @@ ssh root@localhost -p 41061
 
 ```
 docker exec -ti myXampp bash
-```
+```docker run --name myXampp -p 41061:22 -p 41062:80 -p 41063:3306 -d -v ~/my_web_pages:/www tomsik68/xampp
 
 ### use binaries provided by XAMPP
 
